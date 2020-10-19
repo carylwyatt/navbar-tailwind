@@ -74,13 +74,14 @@
             v-for="(item, index) in items" 
             :key="item.heading" 
             class="dropdown px-4 h-full flex flex-col">
-            <button @click="toggleActive($event)" class="py-2 w-full text-white flex items-center justify-between">
+            <button @click="setSelectedIndex(index)" class="py-2 w-full text-white flex items-center justify-between">
               <span>{{ item.heading }}</span>
-              <font-awesome-icon icon="angle-down" />
+              <font-awesome-icon v-if="index !== selected" icon="angle-down" />
+              <font-awesome-icon v-if="index == selected" icon="times" />
             </button>
             <!-- :class="{active:index == selected}" -->
-            <div  class="lg:absolute lg:left-0 dropdown-content flex flex-col bg-white lg:mt-20 hidden">
-              <nuxt-link v-for="link in item.links" :key="link.title" class="px-4 py-2  text-red-800 hover:bg-gray-200" to="/"><font-awesome-icon icon="question-circle" class="fill-current" /> {{ link.title }}</nuxt-link>
+            <div :class="{active:index == selected}" class="lg:absolute lg:left-0 dropdown-content flex flex-col bg-white lg:mt-20 hidden">
+              <nuxt-link v-for="link in item.links" :key="link.title" class="px-4 py-2  text-red-800 hover:bg-gray-200" to="/"><font-awesome-icon :icon="link.icon" class="fill-current" /> {{ link.title }}</nuxt-link>
               <!-- <nuxt-link class="px-4 py-2 text-red-800 hover:bg-gray-200" to="/"><font-awesome-icon icon="comment" class="fill-current" /> Liaisons</nuxt-link> -->
               <!-- <nuxt-link class="px-4 py-2 text-red-800 hover:bg-gray-200" to="/"><font-awesome-icon icon="envelope" class="fill-current" /> Run into Website Issues?</nuxt-link> -->
               <!-- <nuxt-link class="px-4 py-2 text-red-800 hover:bg-gray-200" to="/"><font-awesome-icon icon="wifi" class="fill-current" /> Connect to a Wireless Network</nuxt-link> -->
@@ -101,57 +102,67 @@
     data() {
       return {
         isOpen: false,
-        dropdownOpen: false,
         selected: undefined,
         items: [
           {
-            id: 0,
             heading: 'Research Tools',
             links: [ 
               {
                 title: 'Scout',
+                icon: 'binoculars',
               },
               {
                 title: 'Research Guides',
+                icon: 'compass',
               },
               {
                 title: 'Music Library',
+                icon: 'music',
               },
               {
                 title: 'Libraries Catalog',
+                icon: 'search',
               },
               {
                 title: 'E-Journals',
+                icon: 'bolt',
               },
               {
                 title: 'Special Collections',
+                icon: 'search-plus',
               },
               {
                 title: 'Databases',
+                icon: 'database',
               },
             ]
           }, 
           {
-            id: 1,
             heading: 'Using the Library',
             links: [ 
               {
                 title: 'Find a Place to Study',
+                icon: 'lightbulb',
               },
               {
                 title: 'Computers and Equipment',
+                icon: 'desktop',
               },
               {
                 title: 'Classes and Workshops',
+                icon: 'calendar-alt',
               },
               {
                 title: 'Borrow, Renew & Course Reserves',
+                icon: 'book',
               },
               {
                 title: 'Interlibrary Loan',
+                icon: 'exchange-alt',
               },
               {
                 title: 'Information for Students',
+                icon: 'pencil-alt',
               },
             ]
           }, 
@@ -160,25 +171,20 @@
       }
     },
     methods: {
-      toggleActive (event) {
-        let button = event.target.nextElementSibling
-        console.log(button)
-        button.classList.toggle('active')
-        button.classList.toggle('hidden')
-      },
-       setSelectedIndex (item) {
-        this.selected == this.item.id
-      },
-      //logIndex () {
-      //  console.log(this.items.id);
-      //}
+       setSelectedIndex(index) {
+         if (this.selected == undefined || this.selected !== index) {
+          this.selected = index
+         } else {
+           this.selected = undefined
+         }
+       },
     }
   
   }
 </script>
 
 <style lang="scss" scoped>
-  button.active {
+  .active {
     display: flex;
   }
 </style>
