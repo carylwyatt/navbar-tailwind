@@ -40,7 +40,7 @@
             </div>
           </div>
           <nuxt-link class="py-2 text-white px-4 h-full flex items-center" to="/">Giving</nuxt-link>
-          <nuxt-link class="sm:hidden py-2 text-white px-4 h-full lg:flex items-center" to="/"><span class="h5"><font-awesome-icon icon="user" /></span></nuxt-link>
+          <nuxt-link class="hidden py-2 text-white px-4 h-full lg:flex items-center" to="/"><span class="h5"><font-awesome-icon icon="user" /></span></nuxt-link>
       </div> 
     </nav>
   </header>
