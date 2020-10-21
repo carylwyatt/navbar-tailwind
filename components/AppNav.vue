@@ -28,7 +28,7 @@
               <nuxt-link v-for="link in item.child_items" :key="link.ID" class="px-4 py-2  text-red-800 hover:bg-gray-200" to="/">
                 <font-awesome-icon :icon="[link.icon_class, link.icon]" class="fa-fw fill-current" /> 
                   <h4>{{ link.title }}</h4>
-                  <p>{{ link.description }}</p> 
+                  <p>{{ link.post_content }}</p> 
                   <ul>
                     <li v-for="subLink in link.child_items" :key="subLink.ID">
                       <font-awesome-icon icon="angle-right" class="fa-fw" />
