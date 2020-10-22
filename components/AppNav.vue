@@ -24,8 +24,8 @@
               <font-awesome-icon v-if="index !== selected" icon="angle-down" class="fa-fw m-1"/>
               <font-awesome-icon v-if="index == selected" icon="times" class="fa-fw m-1"/>
             </button>
-            <div :class="{active:index == selected}" class="lg:absolute lg:left-0 dropdown-content flex flex-col bg-white lg:mt-20 hidden">
-              <div v-for="link in item.child_items" :key="link.ID">
+            <div :class="{active:index == selected}" class="lg:absolute lg:left-0 dropdown-content flex flex-col bg-white lg:mt-20 hidden md:flex-row md:flex-wrap">
+              <div v-for="link in item.child_items" :key="link.ID" class="w-full md:w-1/2 lg:w-1/4">
                 <ExternalTile v-if="link.target" :link="link"/>
                 <SublinksTile v-else-if="link.child_items" :link="link"/>
                 <InternalTile v-else :link="link"/>
