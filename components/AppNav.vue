@@ -25,19 +25,11 @@
               <font-awesome-icon v-if="index == selected" icon="times" class="fa-fw m-1"/>
             </button>
             <div :class="{active:index == selected}" class="lg:absolute lg:left-0 dropdown-content flex flex-col bg-white lg:mt-20 hidden">
-              <nuxt-link v-for="link in item.child_items" :key="link.ID" class="px-4 py-2  text-red-800 hover:bg-gray-200" to="/">
-                <font-awesome-icon :icon="[link.icon_class, link.icon]" class="fa-fw fill-current" /> 
-                  <h4>{{ link.title }}</h4>
-                  <p>{{ link.post_content }}</p> 
-                  <ul>
-                    <li v-for="subLink in link.child_items" :key="subLink.ID">
-                      <font-awesome-icon icon="angle-right" class="fa-fw" />
-                      <!-- <a :href="subLink.url">{{ subLink.title }}</a> -->
-                      <span>{{ subLink.title }}</span>
-                    </li>
-                   </ul> 
-
-              </nuxt-link>
+              <div v-for="link in item.child_items" :key="link.ID">
+                <ExternalTile v-if="link.target" :link="link"/>
+                <SublinksTile v-else-if="link.child_items" :link="link"/>
+                <InternalTile v-else :link="link"/>
+              </div>
             </div>
           </div>
           <nuxt-link class="py-2 text-white px-4 h-full flex items-center" to="/">Giving</nuxt-link>
