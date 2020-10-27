@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="w-screen h-screen bg-gray-200">
       <AppNav></AppNav>
   </div>
 </template>
