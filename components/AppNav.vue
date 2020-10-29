@@ -1,30 +1,30 @@
 <template>
   <header class="bg-red-800 ">
     <nav class="lg:flex lg:justify-between lg:px-5 lg:py-2">
-      <div class="flex px-5 py-2 flex-wrap justify-between items-center lg:p-0">
+      <div class="flex flex-wrap items-center justify-between px-5 py-2 lg:p-0">
         <div>
           <nuxt-link to="/"><img class="h-16" src="https://www.lib.ua.edu/wp-content/themes/roots-ualib/assets/img/ualib-logo-capstone.png" alt="University Libraries Logo"></nuxt-link>
         </div>
-        <div class="lg:hidden flex">
-          <nuxt-link class="block py-2 text-white px-4 fa-lg" to="/"><font-awesome-icon icon="user"/></nuxt-link>
+        <div class="flex lg:hidden">
+          <nuxt-link class="block px-4 py-2 text-white fa-lg" to="/"><font-awesome-icon icon="user"/></nuxt-link>
           <button @click="isOpen = !isOpen" type="button" class="block text-white">
-            <font-awesome-icon v-if="!isOpen" icon="bars" class="fa-2x fill-current"/>
-            <font-awesome-icon v-if="isOpen" icon="times" class="fa-2x fill-current"/>
+            <font-awesome-icon v-if="!isOpen" icon="bars" class="fill-current fa-2x"/>
+            <font-awesome-icon v-if="isOpen" icon="times" class="fill-current fa-2x"/>
           </button>
-          <!-- <button v-if="isOpen" @click="isOpen = false" class="fixed inset-0 h-full w-full bg-black opacity-50 cursor-default"></button> -->
+          <!-- <button v-if="isOpen" @click="isOpen = false" class="fixed inset-0 w-full h-full bg-black opacity-50 cursor-default"></button> -->
         </div>
       </div>
       <div :class="isOpen ? 'block' : 'hidden'" class="lg:flex lg:items-center">
           <div 
             v-for="(item, index) in menuItems.items" 
             :key="item.ID" 
-            class="dropdown px-4 h-full flex flex-col">
-            <button @click="setSelectedIndex(index)" class="py-2 w-full h-full text-white flex items-center justify-between">
+            class="flex flex-col h-full px-4 dropdown">
+            <button @click="setSelectedIndex(index)" class="flex items-center justify-between w-full h-full py-2 text-white">
               <span>{{ item.title }}</span>
-              <font-awesome-icon v-if="index !== selected" icon="angle-down" class="fa-fw m-1"/>
-              <font-awesome-icon v-if="index == selected" icon="times" class="fa-fw m-1"/>
+              <font-awesome-icon v-if="index !== selected" icon="angle-down" class="m-1 fa-fw"/>
+              <font-awesome-icon v-if="index == selected" icon="times" class="m-1 fa-fw"/>
             </button>
-            <div :class="{active:index == selected}" class="lg:absolute lg:left-0 lg:top-0 dropdown-content flex flex-col bg-white lg:mt-20 hidden md:flex-row md:flex-wrap">
+            <div :class="{active:index == selected}" class="flex flex-col hidden bg-white lg:absolute lg:left-0 lg:top-0 dropdown-content lg:mt-20 md:flex-row md:flex-wrap">
               <div v-for="link in item.child_items" :key="link.ID" class="w-full md:w-1/2 lg:w-1/4">
                 <ExternalTile v-if="link.target" :link="link"/>
                 <SublinksTile v-else-if="link.child_items" :link="link"/>
@@ -32,8 +32,8 @@
               </div>
             </div>
           </div>
-          <nuxt-link class="py-2 text-white px-4 h-full flex items-center" to="/">Giving</nuxt-link>
-          <nuxt-link class="hidden py-2 text-white px-4 h-full lg:flex items-center" to="/"><span class="h5"><font-awesome-icon icon="user" /></span></nuxt-link>
+          <nuxt-link class="flex items-center h-full px-4 py-2 text-white" to="/">Giving</nuxt-link>
+          <nuxt-link class="items-center hidden h-full px-4 py-2 text-white lg:flex" to="/"><span class="h5"><font-awesome-icon icon="user" /></span></nuxt-link>
       </div> 
     </nav>
   </header>
