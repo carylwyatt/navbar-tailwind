@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Nuxt />
+    <Nuxt class="debug-screens"/>
   </div>
 </template>
 
