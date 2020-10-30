@@ -26,7 +26,7 @@
             </button>
             <div 
               :class="{hidden:index !== selected}" 
-              class="flex flex-col bg-white lg:absolute lg:left-0 lg:top-0 dropdown-content lg:mt-20 md:flex-row md:flex-wrap">
+              class="flex flex-col p-5 bg-white lg:absolute lg:left-0 lg:top-0 dropdown-content lg:mt-20 md:flex-row md:flex-wrap">
               <div v-for="link in item.child_items" :key="link.ID" class="w-full md:w-1/2 lg:w-1/4">
                 <ExternalTile v-if="link.target" :link="link"/>
                 <SublinksTile v-else-if="link.child_items" :link="link"/>
