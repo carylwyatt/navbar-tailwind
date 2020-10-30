@@ -1,9 +1,9 @@
 <template>
   <header class="bg-red-800 ">
-    <nav class="lg:flex lg:justify-between lg:px-5 lg:py-2">
-      <div class="flex flex-wrap items-center justify-between px-5 py-2 lg:p-0">
+    <nav class="lg:flex lg:justify-between lg:px-5">
+      <div class="flex flex-wrap items-center justify-between px-5">
         <div>
-          <nuxt-link to="/"><img class="h-16" src="https://www.lib.ua.edu/wp-content/themes/roots-ualib/assets/img/ualib-logo-capstone.png" alt="University Libraries Logo"></nuxt-link>
+          <nuxt-link to="/"><img class="h-16 my-2" src="https://www.lib.ua.edu/wp-content/themes/roots-ualib/assets/img/ualib-logo-capstone.png" alt="University Libraries Logo"></nuxt-link>
         </div>
         <div class="flex lg:hidden">
           <nuxt-link class="block px-4 py-2 text-white fa-lg" to="/"><font-awesome-icon icon="user"/></nuxt-link>
@@ -18,11 +18,11 @@
           <div 
             v-for="(item, index) in menuItems.items" 
             :key="item.ID" 
-            class="flex flex-col h-full px-4 dropdown">
-            <button @click="setSelectedIndex(index)" class="flex items-center justify-between w-full h-full py-2 text-white">
+            class="flex flex-col h-full dropdown">
+            <button @click="setSelectedIndex(index)" class="flex items-center justify-between w-full h-full px-3 py-2 text-white lg:hover:bg-white lg:hover:text-red-800">
               <span>{{ item.title }}</span>
-              <font-awesome-icon v-if="index !== selected" icon="angle-down" class="m-1 fa-fw"/>
-              <font-awesome-icon v-if="index == selected" icon="times" class="m-1 fa-fw"/>
+              <font-awesome-icon v-if="index !== selected" icon="angle-down" class="m-1 -mr-1 fa-fw"/>
+              <font-awesome-icon v-if="index == selected" icon="times" class="m-1 -mr-1 fa-fw"/>
             </button>
             <div 
               :class="{hidden:index !== selected}" 
