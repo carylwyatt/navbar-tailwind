@@ -21,7 +21,10 @@ export default {
 
   tailwindcss: {
     config: {
-      plugins: [require("tailwindcss-debug-screens")]
+      plugins: [require("tailwindcss-debug-screens")],
+      variants: {
+        textColor: ['responsive', 'hover', 'focus', 'group-hover'],
+      },
     }
   },
 
