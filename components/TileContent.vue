@@ -1,13 +1,17 @@
 <template>
   <div class="flex p-3">
-  <font-awesome-icon :icon="[link.icon_class, link.icon]" class="fa-fw fill-current text-gray-600 fa-2x mt-1" /> 
+  <font-awesome-icon :icon="[link.icon_class, link.icon]" class="mt-1 mr-2 text-2xl text-gray-600 fill-current fa-fw" /> 
     <span class="ml-2">
-      <h4 class="text-xl">{{ link.title }}</h4>
+      <h4 class="text-xl leading-tight">{{ link.title }}</h4>
       <p class="text-black">{{ link.post_content }}</p> 
-      <ul>
-        <li v-for="subLink in link.child_items" :key="subLink.ID">
-          <font-awesome-icon icon="angle-right" class="fa-fw" />
-          <a :href="subLink.url">{{ subLink.title }}</a>
+      <ul class="mt-1">
+        <li v-for="subLink in link.child_items" :key="subLink.ID" class="group">
+          <a 
+            :href="subLink.url"
+            class="text-black group-hover:text-red-800 " 
+           >
+          <font-awesome-icon icon="angle-right" class="-ml-2 text-gray-600 group-hover:text-red-800 fa-fw fa-lg" />
+          <span class="-ml-2">{{ subLink.title }}</span></a>
         </li>
        </ul> 
     </span>
