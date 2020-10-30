@@ -24,7 +24,9 @@
               <font-awesome-icon v-if="index !== selected" icon="angle-down" class="m-1 fa-fw"/>
               <font-awesome-icon v-if="index == selected" icon="times" class="m-1 fa-fw"/>
             </button>
-            <div :class="{active:index == selected}" class="flex flex-col hidden bg-white lg:absolute lg:left-0 lg:top-0 dropdown-content lg:mt-20 md:flex-row md:flex-wrap">
+            <div 
+              :class="{hidden:index !== selected}" 
+              class="flex flex-col bg-white lg:absolute lg:left-0 lg:top-0 dropdown-content lg:mt-20 md:flex-row md:flex-wrap">
               <div v-for="link in item.child_items" :key="link.ID" class="w-full md:w-1/2 lg:w-1/4">
                 <ExternalTile v-if="link.target" :link="link"/>
                 <SublinksTile v-else-if="link.child_items" :link="link"/>
@@ -428,7 +430,4 @@ import { mapState } from 'vuex';
 </script>
 
 <style lang="scss" scoped>
-  .active {
-    display: flex;
-  }
 </style>
