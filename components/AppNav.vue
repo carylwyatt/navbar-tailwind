@@ -19,7 +19,10 @@
             v-for="(item, index) in menuItems.items" 
             :key="item.ID" 
             class="flex flex-col h-full dropdown">
-            <button @click="setSelectedIndex(index)" class="flex items-center justify-between w-full h-full px-3 py-2 text-white lg:hover:bg-white lg:hover:text-red-800">
+            <button @click="setSelectedIndex(index)" 
+            
+           :class="{'lg:bg-white':index == selected, 'lg:text-red-800':index == selected }"
+           class="flex items-center justify-between w-full h-full px-3 py-2 text-white lg:hover:bg-white lg:hover:text-red-800">
               <span>{{ item.title }}</span>
               <font-awesome-icon v-if="index !== selected" icon="angle-down" class="m-1 -mr-1 fa-fw"/>
               <font-awesome-icon v-if="index == selected" icon="times" class="m-1 -mr-1 fa-fw"/>
