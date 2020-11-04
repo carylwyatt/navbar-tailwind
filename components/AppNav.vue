@@ -5,9 +5,9 @@
         <div>
           <nuxt-link to="/"><img class="h-16 my-2" src="https://www.lib.ua.edu/wp-content/themes/roots-ualib/assets/img/ualib-logo-capstone.png" alt="University Libraries Logo"></nuxt-link>
         </div>
-        <div class="flex lg:hidden">
-          <nuxt-link class="block px-4 py-2 text-white fa-lg" to="/"><font-awesome-icon icon="user"/></nuxt-link>
-          <button @click="isOpen = !isOpen" type="button" class="block text-white">
+        <div class="flex items-center h-full lg:hidden">
+          <nuxt-link class="h-full px-4 text-white fa-lg hover:bg-white hover:text-red-800" to="/"><font-awesome-icon icon="user"/></nuxt-link>
+          <button @click="isOpen = !isOpen" type="button" class="flex h-full text-white hover:bg-white hover:text-red-800">
             <font-awesome-icon v-if="!isOpen" icon="bars" class="fill-current fa-2x"/>
             <font-awesome-icon v-if="isOpen" icon="times" class="fill-current fa-2x"/>
           </button>
