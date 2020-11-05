@@ -8,10 +8,10 @@
         <li v-for="subLink in link.child_items" :key="subLink.ID" class="group">
           <a 
             :href="subLink.url"
-            class="text-black group-hover:text-red-800 " 
+            class="flex pb-1 text-black group-hover:text-red-800 " 
            >
           <font-awesome-icon icon="angle-right" class="-ml-2 text-gray-600 group-hover:text-red-800 fa-fw fa-lg" />
-          <span class="-ml-2">{{ subLink.title }}</span></a>
+          <span class="leading-snug">{{ subLink.title }}</span></a>
         </li>
        </ul> 
     </span>
