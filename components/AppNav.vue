@@ -41,7 +41,7 @@
             </div>
           </div>
           <nuxt-link class="flex items-center h-full px-4 py-5 text-white lg:py-2 hover:bg-white hover:text-red-800" to="/">Giving</nuxt-link>
-          <nuxt-link class="items-center hidden h-full px-4 py-5 text-white lg:py-2 lg:flex hover:bg-white hover:text-red-800" to="/"><span class="h5"><font-awesome-icon icon="user" /></span></nuxt-link>
+          <nuxt-link class="items-center hidden h-full px-4 py-5 text-white lg:py-2 lg:flex hover:bg-white hover:text-red-800" to="/"><font-awesome-icon icon="user" class="text-xl fa-fw"/></nuxt-link>
       </div> 
     </nav>
   </header>
