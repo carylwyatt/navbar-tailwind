@@ -1,8 +1,8 @@
 <template>
 
-  <nuxt-link class="flex px-4 text-red-800 hover:bg-gray-200" to="/">
-    <TileContent :link="link"/>
-  </nuxt-link>
+  <a href="/" class="flex px-4 text-red-800 hover:bg-gray-200" >
+    <NavTileContent :link="link"/>
+  </a>
 </template>
 
 <script>

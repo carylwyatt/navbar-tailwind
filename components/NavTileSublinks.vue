@@ -1,8 +1,8 @@
 <template>
 
-  <a href="/" class="flex px-4 text-red-800 hover:bg-gray-200" >
-    <TileContent :link="link"/>
-  </a>
+  <div class="flex px-4 text-red-800 " >
+    <NavTileContent :link="link"/>
+  </div>
 </template>
 
 <script>
