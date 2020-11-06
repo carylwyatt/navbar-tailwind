@@ -21,10 +21,26 @@ export default {
 
   tailwindcss: {
     config: {
-      plugins: [require("tailwindcss-debug-screens")],
+      theme: {
+
+      },
       variants: {
         textColor: ['responsive', 'hover', 'focus', 'group-hover'],
       },
+      plugins: [require("tailwindcss-debug-screens")],
+      purge: {
+        enabled: process.env.NODE_ENV === 'production',
+      content: [
+          'components/**/*.vue',
+          'layouts/**/*.vue',
+          'pages/**/*.vue',
+          'plugins/**/*.js',
+          'nuxt.config.js',
+          // TypeScript
+          'plugins/**/*.ts',
+          'nuxt.config.ts'
+        ]
+      }
     }
   },
 
