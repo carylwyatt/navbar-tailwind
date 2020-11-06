@@ -1,6 +1,6 @@
 <template>
 
-  <div class="flex px-4 text-red-800 " >
+  <div class="flex px-4 text-ua-crimson" >
     <NavTileContent :link="link"/>
   </div>
 </template>

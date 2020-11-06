@@ -1,6 +1,6 @@
 <template>
 
-  <nuxt-link class="flex px-4 text-red-800 hover:bg-gray-200" to="/">
+  <nuxt-link class="flex px-4 text-ua-crimson hover:bg-gray-200" to="/">
     <NavTileContent :link="link"/>
   </nuxt-link>
 </template>
