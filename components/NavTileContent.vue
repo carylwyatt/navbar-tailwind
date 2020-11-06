@@ -20,8 +20,9 @@
 
 <script>
   export default {
-    props: ['link']
-    
+    props: { 
+      link: Object 
+    }
   }
 </script>
 
