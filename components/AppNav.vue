@@ -1,15 +1,19 @@
 <template>
   <header class="bg-red-800 ">
     <nav class="lg:flex lg:justify-between lg:px-5">
-      <div class="flex flex-wrap items-center justify-between px-5">
+      <div class="flex flex-wrap items-center justify-between px-5 lg:px-0">
         <div>
           <nuxt-link to="/"><img class="h-16 my-2" src="https://www.lib.ua.edu/wp-content/themes/roots-ualib/assets/img/ualib-logo-capstone.png" alt="University Libraries Logo"></nuxt-link>
         </div>
         <div class="flex items-center h-20 lg:hidden">
           <nuxt-link class="flex items-center h-full px-5 text-white fa-lg hover:bg-white hover:text-red-800" to="/"><font-awesome-icon icon="user"/></nuxt-link>
-          <button @click="isOpen = !isOpen" type="button" class="flex items-center h-full px-5 text-white hover:bg-white hover:text-red-800">
+          <button 
+            @click="isOpen = !isOpen" 
+            type="button" 
+            :class="isOpen ? 'bg-white text-red-800' : ''"
+            class="flex items-center h-full px-5 text-white hover:bg-white hover:text-red-800">
             <font-awesome-icon v-if="!isOpen" icon="bars" class="fill-current fa-2x"/>
-            <font-awesome-icon v-if="isOpen" icon="times" class="fill-current fa-2x"/>
+            <font-awesome-icon v-if="isOpen" icon="times" class="text-red-800 bg-white fill-current fa-2x"/>
           </button>
           <!-- <button v-if="isOpen" @click="isOpen = false" class="fixed inset-0 w-full h-full bg-black opacity-50 cursor-default"></button> -->
         </div>
