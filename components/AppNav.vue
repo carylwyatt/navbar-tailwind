@@ -24,11 +24,16 @@
             :key="item.ID" 
             class="flex flex-col h-full dropdown">
             <button @click="setSelectedIndex(index)" 
-              :class="{'bg-ua-white':index == selected, 'text-ua-crimson':index == selected }"
+              :class="{
+                'bg-ua-white':index == selected, 
+                'text-ua-crimson':index == selected,
+                }"
               class="flex items-center justify-between w-full h-full px-3 py-5 text-ua-white lg:py-2 hover:bg-ua-white hover:text-ua-crimson">
-              <span class="font-base">{{ item.title }}</span>
+              <span 
+              :class="{ 'text-ua-crimson':index == selected }" 
+              class="font-base">{{ item.title }}</span>
               <font-awesome-icon v-if="index !== selected" icon="angle-down" class="m-1 -mr-1 fa-fw"/>
-              <font-awesome-icon v-if="index == selected" icon="times" class="m-1 -mr-1 fa-fw"/>
+              <font-awesome-icon v-if="index == selected" icon="times" class="m-1 -mr-1 text-ua-crimson fa-fw"/>
             </button>
             <div 
               :class="{hidden:index !== selected}" 
