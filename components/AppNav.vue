@@ -28,7 +28,7 @@
                 'bg-ua-white':index == selected, 
                 'text-ua-crimson':index == selected,
                 }"
-              class="flex items-center justify-between w-full h-full px-3 py-5 text-ua-white lg:py-2 hover:bg-ua-white hover:text-ua-crimson">
+              class="flex items-center justify-between w-full h-full px-3 py-5 text-base text-ua-white lg:py-2 hover:bg-ua-white hover:text-ua-crimson">
               <span 
               :class="{ 'text-ua-crimson':index == selected }" 
               class="font-base">{{ item.title }}</span>
@@ -45,8 +45,8 @@
               </div>
             </div>
           </div>
-          <nuxt-link class="flex items-center h-full px-4 py-5 text-ua-white lg:py-2 hover:bg-ua-white hover:text-ua-crimson" to="/">Giving</nuxt-link>
-          <nuxt-link class="items-center hidden h-full px-4 py-5 text-ua-white lg:py-2 lg:flex hover:bg-ua-white hover:text-ua-crimson" to="/"><font-awesome-icon icon="user" class="text-xl fa-fw"/></nuxt-link>
+          <nuxt-link class="flex items-center h-full px-4 py-5 text-base text-ua-white lg:py-2 hover:bg-ua-white hover:text-ua-crimson" to="/">Giving</nuxt-link>
+          <nuxt-link class="items-center hidden h-full px-4 py-5 text-base text-ua-white lg:py-2 lg:flex hover:bg-ua-white hover:text-ua-crimson" to="/"><font-awesome-icon icon="user" class="text-xl fa-fw"/></nuxt-link>
       </div> 
     </nav>
   </header>
