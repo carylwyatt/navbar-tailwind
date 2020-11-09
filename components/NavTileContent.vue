@@ -1,6 +1,6 @@
 <template>
   <div class="flex py-3 md:p-3">
-  <font-awesome-icon :icon="[link.icon_class, link.icon]" class="mt-1 mr-2 text-2xl text-gray-600 fill-current fa-fw" /> 
+  <font-awesome-icon :icon="[link.icon_class, link.icon]" class="mt-1 mr-2 text-2xl fill-current text-icon-gray fa-fw" /> 
     <span class="ml-2">
       <h4 class="text-xl font-medium leading-tight ">{{ link.title }}</h4>
       <p class="">{{ link.description }}</p> 
