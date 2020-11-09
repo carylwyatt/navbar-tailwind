@@ -37,6 +37,8 @@ export default {
             'ua-crimson': '#900',
             'ua-white': '#f9f9f9',
             'body-color': '#333',
+            'icon-gray': '#666',
+            'nav-hover-gray': '#ececec',
           },
           fontFamily: {
             'ua-heading': 'Open Sans, sans-serif',
