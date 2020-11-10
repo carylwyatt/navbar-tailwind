@@ -385,16 +385,46 @@ export const actions = {
     if (state.menuItems.length) return;
 
     try {
-      await fetch("http://headless.local/wp-json/menus/v1/menus/site-navbar", {
+      let menuItems = await fetch("http://headless.local/wp-json/menus/v1/menus/site-navbar", {
         //headers: {
         //  "Content-Type": "application/json",
         //  "x-api-key": process.env.AWS_API_KEY
         //}
       })
         .then(response => response.json())
-        .then(data => {
-          commit("updateMenuData", data);
-        });
+      menuItems = menuItems.items
+        .map(({ID, title, child_items}) => ({
+          ID,
+          title,
+          child_items
+        }))
+
+      // let researchChildren = menuItems[0].child_items
+      //   .reduce((result, child) => {
+      //     result.push({
+      //       ID: child.ID,
+      //       title: child.title,
+      //       url: child.url,
+      //       icon: child.icon,
+      //       icon_class: child.icon_class,
+      //       description: child.description,
+      //       child_items: child.child_items
+      //     })
+      //     return result
+      //   }, [])
+
+        // .reduce((result, menuItem) => {
+        //   console.log('hello', menuItem.ID)
+        //   // result[menuItem] = result[menuItem] || []
+        //   result.push({
+        //     ID: menuItem.ID,
+        //     title: menuItem.title,
+        //     child_items: menuItem.child_items
+            
+        //   })
+        //   return result
+        // }, [])
+        commit("updateMenuData", menuItems);
     } catch (err) {
       console.log(err);
     }

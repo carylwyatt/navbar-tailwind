@@ -20,7 +20,7 @@
       </div>
       <div :class="isOpen ? 'block' : 'hidden'" class="lg:flex lg:items-center">
           <div 
-            v-for="(item, index) in menuItems.items" 
+            v-for="(item, index) in menuItems" 
             :key="item.ID" 
             class="flex flex-col h-full dropdown">
             <button @click="setSelectedIndex(index)" 
@@ -58,7 +58,7 @@ import { mapState } from 'vuex';
   export default {
     computed: {
       ...mapState([
-        'menuItems',
+        'menuItems'      
       ])
     },
     data() {
