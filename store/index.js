@@ -392,12 +392,38 @@ export const actions = {
         //}
       })
         .then(response => response.json())
-      menuItems = menuItems.items
-        .map(({ID, title, child_items}) => ({
-          ID,
-          title,
-          child_items
-        }))
+      // menuItems = menuItems.items
+      //   .map(({ID, title, child_items}) => ({
+      //     ID,
+      //     title,
+      //     child_items      
+      //   }))
+
+        const unnestChildren = function (children = [], depth = 0) {
+          return children.reduce((a, c) => {
+            const plan = {
+              ID: c.ID,
+              title: c.title,
+              url: c.url,
+              icon: c.icon,
+              icon_class: c.icon_class,
+              description: c.description,
+            }
+        
+            if (c.child_items) {
+              plan.child_items = unnestChildren(c.child_items, depth + 1)
+            }
+        
+            return [
+              ...a,
+              plan
+            ]
+          }, [])
+        }
+        
+        menuItems = unnestChildren(menuItems.items)
+
+        // let childItems = menuItems.child_items
 
       // let researchChildren = menuItems[0].child_items
       //   .reduce((result, child) => {
@@ -413,17 +439,15 @@ export const actions = {
       //     return result
       //   }, [])
 
-        // .reduce((result, menuItem) => {
-        //   console.log('hello', menuItem.ID)
+        // .reduce((result, childItem, i) => {
+        //   console.log('hello', childItem.ID)
         //   // result[menuItem] = result[menuItem] || []
         //   result.push({
-        //     ID: menuItem.ID,
-        //     title: menuItem.title,
-        //     child_items: menuItem.child_items
             
         //   })
         //   return result
         // }, [])
+        // console.log(childItems)
         commit("updateMenuData", menuItems);
     } catch (err) {
       console.log(err);
