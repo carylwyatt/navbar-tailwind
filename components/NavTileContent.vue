@@ -10,7 +10,7 @@
             :href="subLink.url"
             class="flex pb-1 text-body-color group-hover:text-ua-crimson " 
            >
-          <font-awesome-icon icon="angle-right" class="-ml-2 text-gray-600 group-hover:text-ua-crimson fa-fw fa-lg" />
+          <font-awesome-icon icon="angle-right" class="-ml-2 text-gray-400 group-hover:text-ua-crimson fa-fw fa-lg" />
           <span class="leading-snug">{{ subLink.title }}</span></a>
         </li>
        </ul> 
