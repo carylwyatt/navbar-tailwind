@@ -17,8 +17,7 @@
     "node-sass": "^4.14.1",
     "nuxt": "^2.14.6",
     "postcss": "^8.1.8",
-    "sass-loader": "^10.0.3",
-    "tailwindcss": "^2.0.1"
+    "sass-loader": "^10.0.3"
   },
   "devDependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
@@ -30,6 +29,7 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^7.10.0",
     "eslint-plugin-nuxt": "^1.0.0",
+    "tailwindcss": "^2.0.1-compat",
     "tailwindcss-debug-screens": "^1.1.0"
   }
 }
